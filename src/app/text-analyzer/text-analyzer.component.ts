@@ -43,6 +43,7 @@ export class TextAnalyzerComponent {
       this.toastr.warning('Please enter a text to analyze', 'Empty Text');
     } else {
 
+      // Local analyzis
       const analyzeVowels = this.isVowels;
       const analyzeOnline = this.isOnline; 
       
@@ -64,7 +65,10 @@ export class TextAnalyzerComponent {
             console.error(err);
           }
         })
+
       } else {
+
+        // Server analyzis
         const result = this.textAnalyzerService.analyzeTextLocal(text, analyzeVowels);
         this.results.push({
           date: new Date(),
