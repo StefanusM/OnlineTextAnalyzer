@@ -1,0 +1,43 @@
+.text-analyzer-container{
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 30px;
+    background-image: linear-gradient(45deg, white 0%, black 50%)
+}
+
+.form-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.result-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-sliders{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#analyze-button{
+    margin: 10px;
+}
