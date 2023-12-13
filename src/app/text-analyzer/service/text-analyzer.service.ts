@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const emptyVowelsCountMap = new Map<string, number>([
@@ -109,7 +109,9 @@ export class TextAnalyzerService {
    * @returns the response of the server which should contain a Map of vowels with their counts
    */
   analyzeTextForVowelsOnServer(text: string) {
-    return this.http.post('http://localhost:8080/analyzeVowels', text);
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("text", text)
+    return this.http.get('http://localhost:8080/analyzeVowels', {params: queryParams});
     
   }
 
@@ -119,7 +121,9 @@ export class TextAnalyzerService {
    * @returns the response of the server which should contain a Map of consonants with their counts
    */
   analyzeTextForConsonantsOnServer(text: string) {
-    return this.http.post('http://localhost:8080/analyzeConsonants', text);
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("text", text)
+    return this.http.get('http://localhost:8080/analyzeConsonants', {params: queryParams});
   }
 
 }
