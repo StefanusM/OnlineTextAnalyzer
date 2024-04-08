@@ -11,7 +11,7 @@
                     <textarea
                         matInput
                         cdkTextareaAutosize
-                        formControlName="text"></textarea>    
+                        formControlName="text"></textarea>
                 </mat-form-field>
                 <button id="analyze-button" mat-raised-button (click)="analyzeText()">Analyze</button>
             </form>
@@ -20,7 +20,7 @@
                 <mat-slide-toggle [(ngModel)]="isVowels">Consonants / Vowels</mat-slide-toggle>
             </div>
             </mat-card-content>
-        </mat-card>    
+        </mat-card>
     </div>
     <div class="result-container">
         <mat-card class="result-card" *ngIf="results.length > 0">
@@ -31,7 +31,7 @@
             <mat-card-content>
                 <mat-list>
                     <mat-list-item *ngFor="let result of results.reverse()">
-                        {{resultToString(result)}}
+                        {{result | resultToString: showZeros}}
                     </mat-list-item>
                 </mat-list>
             </mat-card-content>

@@ -14,11 +14,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { ToastrModule } from 'ngx-toastr';
+import { ResultToStringPipe } from './pipes/result-to-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextAnalyzerComponent,
+    ResultToStringPipe,
   ],
   imports: [
     BrowserModule,

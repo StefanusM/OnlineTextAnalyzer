@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { TextAnalyzerService } from './service/text-analyzer.service';
 import { ToastrService } from 'ngx-toastr';
 
-type ResultType = {
+export type ResultType = {
   date: Date,
   isVowels: boolean,
   online: boolean,
@@ -22,7 +22,7 @@ export class TextAnalyzerComponent {
   isOnline: boolean = false;
   isVowels: boolean = false;
   showZeros: boolean = false;
-  results: Array<ResultType> = new Array();
+  results: Array<ResultType> = [];
 
   constructor(private fb: FormBuilder, private textAnalyzerService: TextAnalyzerService, private toastr: ToastrService) {
     this.form = this.fb.group({
@@ -45,8 +45,8 @@ export class TextAnalyzerComponent {
 
       // Local analyzis
       const analyzeVowels = this.isVowels;
-      const analyzeOnline = this.isOnline; 
-      
+      const analyzeOnline = this.isOnline;
+
       let self = this
       if(this.isOnline) {
 
@@ -79,35 +79,6 @@ export class TextAnalyzerComponent {
         });
       }
     }
-  }
-
-
-  /**
-   * Creates a readable string from the result object
-   * @param result A Result Object from the Text Analyzis
-   * @returns the readable string
-   */
-  resultToString(result: ResultType) : string {
-    let filteredOutput = new Map<string, number>();
-
-    let resultString = result.date.toLocaleTimeString() + ": \"" + result.input + "\" ";
-    resultString += result.isVowels ? " Vowels " : " Consonats ";
-    resultString += result.online ? "(online) = " : "= ";
-
-    if(!this.showZeros) {
-      result.output.forEach((value, key) => {
-        if(value > 0){
-          filteredOutput.set(key, value);
-        }
-      })
-    } else {
-      filteredOutput = result.output
-    }
-    filteredOutput.forEach((value, character, resultMap) => {
-      resultString += " " + character + ": " + value;
-    })
-
-    return resultString;
   }
 
     /**
