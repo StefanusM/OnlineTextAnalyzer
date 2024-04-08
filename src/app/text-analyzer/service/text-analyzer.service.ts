@@ -38,7 +38,7 @@ const emptyConsonantsCountMap = new Map<string, number>([
 })
 export class TextAnalyzerService {
   constructor(private http: HttpClient) {}
-  
+
   /**
    * Counts the number of times that either each vowel or each consonats is present in the text.
    * @param text The text to analyze
@@ -89,7 +89,7 @@ export class TextAnalyzerService {
         emptyMap.set(char, currentCount + 1);
       }
     })
-    
+
     return emptyMap;
   }
 
@@ -111,8 +111,8 @@ export class TextAnalyzerService {
   analyzeTextForVowelsOnServer(text: string) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("text", text)
-    return this.http.get('http://localhost:8080/analyzeVowels', {params: queryParams});
-    
+    return this.http.get('http://localhost:8080/analyze-vowels', {params: queryParams});
+
   }
 
   /**
@@ -123,7 +123,7 @@ export class TextAnalyzerService {
   analyzeTextForConsonantsOnServer(text: string) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("text", text)
-    return this.http.get('http://localhost:8080/analyzeConsonants', {params: queryParams});
+    return this.http.get('http://localhost:8080/analyze-consonants', {params: queryParams});
   }
 
 }
