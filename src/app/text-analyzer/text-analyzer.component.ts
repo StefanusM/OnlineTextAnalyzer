@@ -31,8 +31,8 @@ export class TextAnalyzerComponent {
   }
 
   /**
-   * Analyzes the user input in the textfield based on the settings.
-   * If this.online is true the analyzis is done on the server, otherwise it is done local.
+   * Analyzes the user input in the text field based on the settings.
+   * If this.online is true the analysis is done on the server, otherwise it is done local.
    * If the input is empty, a toast is shown to the user that asks him to enter a text.
    * The result is added to this.results
    */
@@ -43,7 +43,7 @@ export class TextAnalyzerComponent {
       this.toastr.warning('Please enter a text to analyze', 'Empty Text');
     } else {
 
-      // Local analyzis
+      // Local analysis
       const analyzeVowels = this.isVowels;
       const analyzeOnline = this.isOnline;
 
@@ -68,7 +68,7 @@ export class TextAnalyzerComponent {
 
       } else {
 
-        // Server analyzis
+        // Server analysis
         const result = this.textAnalyzerService.analyzeTextLocal(text, analyzeVowels);
         this.results.push({
           date: new Date(),
@@ -82,7 +82,7 @@ export class TextAnalyzerComponent {
   }
 
     /**
-   * Takes an Error from the http Request and creates a Error Message for the User
+   * Takes an Error from the http Request and creates an Error Message for the User
    * @param error The error from the response of the server
    */
   // tslint:disable-next-line:typedef

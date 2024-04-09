@@ -15,7 +15,7 @@ export class ResultToStringPipe implements PipeTransform {
     let filteredOutput = new Map<string, number>();
 
     let resultString = value.date.toLocaleTimeString() + ": \"" + value.input + "\" ";
-    resultString += value.isVowels ? " Vowels " : " Consonats ";
+    resultString += value.isVowels ? " Vowels " : " Consonants ";
     resultString += value.online ? "(online) = " : "= ";
 
     if(!showZeros) {

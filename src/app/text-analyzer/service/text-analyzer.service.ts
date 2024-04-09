@@ -40,9 +40,9 @@ export class TextAnalyzerService {
   constructor(private http: HttpClient) {}
 
   /**
-   * Counts the number of times that either each vowel or each consonats is present in the text.
+   * Counts the number of times that either each vowel or each consonant is present in the text.
    * @param text The text to analyze
-   * @param vowels defines if vowels or consonants are anlyzed (true = vowels, false = consonants)
+   * @param vowels defines if vowels or consonants are analyzed (true = vowels, false = consonants)
    * @returns a Map that contains all vowels or consonants as keys and their counts as values
    */
   analyzeTextLocal(text: string, vowels: boolean) : Map<string, number> {
@@ -96,7 +96,7 @@ export class TextAnalyzerService {
   /**
    * Sends a request to the server to count either consonants or vowels in the text
    * @param text the text to analyze
-   * @param vowels defines if vowels or consonants are anlyzed (true = vowels, false = consonants)
+   * @param vowels defines if vowels or consonants are analyzed (true = vowels, false = consonants)
    * @returns the response of the server which should contain a Map of the consonants or vowels with their counts
    */
   analyzeTextOnServer(text: string, vowels:boolean) {
